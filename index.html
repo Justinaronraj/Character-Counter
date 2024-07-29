@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body 
+    {
+    font-family: Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    background-color: #8c8b8b;
+    }
+    .counter{
+        border-radius: 1px solid black;
+        border-radius: 20px;
+        margin-top: 200px;
+        background-color: #666666c4;
+        box-shadow:10px 10px 90px 20px;
+        /* backdrop-filter: blur(50px); */
+        padding: 30px;
+    }
+
+#text-area {
+    width: 900px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#char-count {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #343333;
+}
+#clear{
+    border-radius: none;
+    background-color: rgb(255, 153, 153);
+    font-weight: bolder;
+    box-shadow: 1px 1px 1px 1px;
+}
+    </style>
+</head>
+<body>
+   <div class="counter">
+    <h1>Real Time Character Counter</h1>
+    <textarea id="text-area" placeholder="Type something..."></textarea>
+    <p id="char-count">0 characters</p>
+    <button id="clear" onclick="remove()">Reset</button>
+    </div>
+    <script src="/program files/project/jqery/jQuery"></script>
+    <script>
+        const textArea = document.getElementById('text-area');
+let charCount = document.getElementById('char-count');
+let remCount =document.getElementById('rcount');
+
+textArea.addEventListener('input', () => {
+    let textLength = textArea.value.length;
+    charCount.textContent = `${textLength}/100 characters`;
+    // remCount=100-textLength;
+    // document.getElementById('rcount').innerHTML=remCount+"Character remaining";
+    if(textLength>100)
+{
+    alert("You have reached your Limit");
+}
+});
+    function remove(){
+        document.getElementById('text-area').value='';
+        charCount.textContent=0+" characters";
+    }
+
+    </script>
+
+</body>
+</html>
